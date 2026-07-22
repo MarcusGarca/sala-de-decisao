@@ -33,8 +33,8 @@ export default function HeroSection() {
           fill
           priority
           quality={90}
-          sizes="100vw"
-          className="object-cover object-left-top md:object-left"
+          sizes="(max-width: 767px) 100vw, 72vw"
+          className="object-cover object-left-top md:object-contain md:object-left"
         />
 
         {/* Mobile: preserva a foto no topo e a dissolve antes do conteúdo. */}
@@ -83,7 +83,7 @@ export default function HeroSection() {
             CONSELHO ESTRATÉGICO EXECUTIVO SOB DEMANDA
           </div>
 
-          <h1 className="max-w-3xl text-[clamp(2.65rem,4.2vw,4.85rem)] font-medium leading-[1.015] tracking-[-.052em] text-white">
+          <h1 className="max-w-3xl text-[clamp(2.45rem,3.45vw,4.2rem)] font-medium leading-[1.025] tracking-[-.052em] text-white">
             Algumas decisões podem <strong className="text-gradient font-semibold">acelerar uma empresa.</strong> Outras podem <strong className="text-gradient font-semibold">comprometer anos de crescimento.</strong>
           </h1>
 
