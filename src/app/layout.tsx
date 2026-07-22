@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero-duo.webp", // Imagem de pré-visualização no WhatsApp/LinkedIn
+        url: "https://sala-de-decisao.netlify.app/images/card-whatssapp.webp", // Imagem de pré-visualização no WhatsApp/LinkedIn
         width: 1200,
         height: 630,
         alt: "Sala de Decisão - Luísa e Júlio",
