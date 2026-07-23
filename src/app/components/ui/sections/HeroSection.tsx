@@ -34,7 +34,7 @@ export default function HeroSection() {
           priority
           quality={90}
           sizes="(max-width: 767px) 100vw, 72vw"
-          className="object-cover object-left-top md:object-contain md:object-left"
+          className="hero-content-reveal object-cover object-left-top md:object-contain md:object-left"
         />
 
         {/* Mobile: preserva a foto no topo e a dissolve antes do conteúdo. */}
@@ -73,10 +73,7 @@ export default function HeroSection() {
       <div className="relative z-20 mx-auto grid w-full max-w-[1440px] flex-1 grid-cols-12 items-center pt-[47vh] md:pt-10">
         <motion.div
           style={{ y: reduceMotion ? 0 : contentY, opacity: contentOpacity }}
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-          className="col-span-12 rounded-2xl border border-cyan-500/20 bg-slate-950/40 p-6 pb-10 shadow-[0_0_50px_rgba(6,182,212,.08)] backdrop-blur-md md:col-span-6 md:col-start-7 md:p-8 md:pb-8 lg:col-span-5 lg:col-start-8 xl:mr-8"
+          className="hero-content-reveal col-span-12 rounded-2xl border border-cyan-500/20 bg-slate-950/40 p-6 pb-10 shadow-[0_0_50px_rgba(6,182,212,.08)] backdrop-blur-md md:col-span-6 md:col-start-7 md:p-8 md:pb-8 lg:col-span-5 lg:col-start-8 xl:mr-8"
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-slate-950/60 px-4 py-2 text-[10px] font-semibold tracking-[.15em] text-cyan-200 backdrop-blur-xl sm:text-xs">
             <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
