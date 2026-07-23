@@ -1,8 +1,76 @@
 @import "tailwindcss";
 :root { --background:#030712; --foreground:#f8fafc; }
-@theme inline { --color-background:var(--background); --color-foreground:var(--foreground); --font-sans:var(--font-geist-sans); --font-mono:var(--font-geist-mono); }
+@theme inline { --color-background:var(--background); --color-foreground:var(--foreground); --font-sans:var(--font-montserrat); --font-mono:var(--font-geist-mono); }
 html { scroll-behavior:smooth; background:#030712; }
-body { background:var(--background); color:var(--foreground); font-family:var(--font-geist-sans),Arial,sans-serif; margin:0; }
+body { background:var(--background); color:var(--foreground); font-family:var(--font-montserrat),Arial,sans-serif; margin:0; overflow-wrap:break-word; hyphens:none; }
+
+/* Escala tipográfica editorial das seções da landing page (o Hero possui escala própria). */
+.typography-sections > section:first-of-type h1 strong { font-weight:800; }
+.typography-sections > section:not(:first-of-type) h2 {
+  margin-bottom:1rem;
+  font-size:1.5rem;
+  line-height:1.2;
+  font-weight:700;
+  letter-spacing:-.025em;
+  color:#fff;
+}
+.typography-sections > section:not(:first-of-type) h2 + p {
+  max-width:48rem;
+  font-size:.875rem;
+  line-height:1.625;
+  color:#94a3b8;
+}
+.typography-sections > section:not(:first-of-type) h3,
+.typography-sections > section:not(:first-of-type) details summary {
+  font-size:1.125rem;
+  line-height:1.4;
+  font-weight:600;
+  color:#fff;
+}
+.typography-sections > section:not(:first-of-type) article > p:not([class*="tracking"]),
+.typography-sections > section:not(:first-of-type) details > p {
+  font-size:.875rem;
+  line-height:1.625;
+  color:#cbd5e1;
+}
+.typography-sections > section:not(:first-of-type) .glass > span:not(:only-child),
+.typography-sections > section:not(:first-of-type) .glass > span:only-child,
+.typography-sections > section:not(:first-of-type) .glass > p {
+  font-size:.875rem;
+  line-height:1.625;
+  color:#cbd5e1;
+}
+@media (min-width:40rem) {
+  .typography-sections > section:not(:first-of-type) h2 { font-size:1.875rem; }
+  .typography-sections > section:not(:first-of-type) h2 + p { font-size:1rem; }
+  .typography-sections > section:not(:first-of-type) h3,
+  .typography-sections > section:not(:first-of-type) details summary { font-size:1.25rem; }
+  .typography-sections > section:not(:first-of-type) article > p:not([class*="tracking"]),
+  .typography-sections > section:not(:first-of-type) details > p,
+  .typography-sections > section:not(:first-of-type) .glass > span,
+  .typography-sections > section:not(:first-of-type) .glass > p { font-size:1.125rem; }
+}
+@media (min-width:64rem) {
+  .typography-sections > section:not(:first-of-type) h2 { font-size:2.25rem; }
+  .typography-sections > section:not(:first-of-type) h2 + p { font-size:1rem; }
+  .typography-sections > section:not(:first-of-type) h3,
+  .typography-sections > section:not(:first-of-type) details summary { font-size:1.5rem; }
+}
+#planos article h3 {
+  font-size:1.5rem;
+  line-height:1.25;
+  font-weight:700;
+}
+#planos article h3 + p {
+  font-size:2.25rem;
+  line-height:1.1;
+  font-weight:800;
+  color:#22d3ee;
+}
+@media (min-width:40rem) {
+  #planos article h3 { font-size:1.875rem; }
+  #planos article h3 + p { font-size:3rem; }
+}
 html { scrollbar-color:#00bfff #020617; scrollbar-width:thin; }
 html[data-scrollbar-active="false"] { scrollbar-color:transparent #020617; }
 html::-webkit-scrollbar { width:10px; }
