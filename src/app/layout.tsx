@@ -18,8 +18,11 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
-// URL Base para garantir links absolutos em todo o site
+// URL Base do Netlify
 const siteUrl = "https://sala-de-decisao.netlify.app";
+
+// Caminho EXATO onde seu arquivo PNG está localizado dentro da pasta /public
+const ogImageUrl = `${siteUrl}/assets/images/card-whatssapp.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -44,10 +47,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteUrl}/images/card-whatsapp.png`, // RECOMENDADO: Usar .jpg ou .png para máxima compatibilidade
+        url: ogImageUrl,
         width: 1200,
         height: 630,
-        type: "image/jpeg",
+        type: "image/png",
         alt: "Sala de Decisão - Luísa e Júlio",
       },
     ],
@@ -57,7 +60,7 @@ export const metadata: Metadata = {
     title: "Sala de Decisão | Conselho Executivo sob demanda",
     description:
       "Discuta decisões críticas com executivos C-Level experientes e reduza riscos antes que eles aconteçam.",
-    images: [`${siteUrl}/images/card-whatsapp.png`],
+    images: [ogImageUrl],
   },
 };
 
