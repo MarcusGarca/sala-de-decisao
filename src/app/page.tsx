@@ -12,7 +12,9 @@ import TargetAudienceSection from "./components/ui/sections/TargetAudienceSectio
 import TopicsGridSection from "./components/ui/sections/TopicsGridSection";
 import UseCasesSection from "./components/ui/sections/UseCasesSection";
 import TechBackground from "./components/TechBackground";
+import CursorFollower from "./components/ui/CursorFollower";
+import ScrollbarActivity from "./components/ui/ScrollbarActivity";
 
 export default function Home() {
-  return <main className="relative overflow-hidden"><TechBackground /><HeroSection /><ExecutivePainSection /><AboutSection /><TopicsGridSection /><HowItWorksSection /><AdvisorsSection /><DeliverablesSection /><TargetAudienceSection /><UseCasesSection /><CostOfMistakeSection /><PricingSection /><FaqSection /><FinalCtaSection /></main>;
+  return <><CursorFollower /><ScrollbarActivity /><main className="relative overflow-hidden"><TechBackground /><HeroSection /><ExecutivePainSection /><AboutSection /><TopicsGridSection /><HowItWorksSection /><AdvisorsSection /><DeliverablesSection /><TargetAudienceSection /><UseCasesSection /><CostOfMistakeSection /><PricingSection /><FaqSection /><FinalCtaSection /></main></>;
 }
