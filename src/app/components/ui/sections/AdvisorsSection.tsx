@@ -50,7 +50,7 @@ export default function AdvisorsSection() {
   const cardsY = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
-    <SectionWrapper>
+    <SectionWrapper className="bg-[#00041B]">
       <div ref={targetRef}>
         <Reveal>
           <p className="text-xs font-semibold tracking-[.2em] text-cyan-400">
@@ -58,7 +58,7 @@ export default function AdvisorsSection() {
           </p>
           <h2 className="mt-4 max-w-4xl">
             Você não conversa com consultores.{" "}
-            <span className="text-slate-500">
+            <span>
               Você conversa com quem já ocupou a cadeira.
             </span>
           </h2>
