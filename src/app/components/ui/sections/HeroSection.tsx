@@ -1,92 +1,89 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
-import { ArrowDown, ArrowRight } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
-import hero from "../../../../../public/assets/images/Foto da Luísa e do Júlio.webp";
+import { ArrowRight } from "lucide-react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 export default function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const videoY = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 72]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
   return (
-    <section className="relative z-10 flex min-h-[85vh] flex-col overflow-hidden bg-transparent px-5 py-7 sm:px-8 lg:py-10">
-      <nav className="relative z-30 mx-auto flex w-full max-w-[1280px] items-center justify-between">
-        <span className="text-sm font-semibold tracking-[.18em] text-white">
-          SALA <span className="text-cyan-400">DE DECISÃO</span>
-        </span>
-        <a href="#planos" className="rounded-full border border-cyan-500/20 bg-slate-950/55 px-4 py-2 text-xs text-slate-200 backdrop-blur-xl transition hover:border-cyan-400/50 hover:text-white">
-          Conhecer formatos
-        </a>
-      </nav>
-
-      <div className="relative z-20 mx-auto grid w-full max-w-[1280px] flex-1 gap-10 py-12 lg:grid-cols-12 lg:items-center lg:gap-12 lg:py-16">
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, x: -24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative lg:col-span-6"
+    <section
+      ref={sectionRef}
+      id="hero"
+      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-neutral-950"
+    >
+      <div className="absolute inset-0 origin-center scale-100 min-[769px]:scale-[1.08]">
+        <motion.video
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          style={{ y: reduceMotion ? 0 : videoY }}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          aria-hidden="true"
         >
-          <div
-            className="relative aspect-[4/3] overflow-hidden lg:aspect-[5/4]"
-            style={{
-              maskImage:
-                "linear-gradient(to right, black 0%, black 72%, transparent 100%), linear-gradient(to bottom, black 0%, black 72%, transparent 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to right, black 0%, black 72%, transparent 100%), linear-gradient(to bottom, black 0%, black 72%, transparent 100%)",
-              maskComposite: "intersect",
-              WebkitMaskComposite: "source-in",
-            }}
-          >
-            <Image
-              src={hero}
-              alt="Luísa e Júlio, fundadores da Sala de Decisão"
-              fill
-              priority
-              quality={90}
-              sizes="(max-width: 1023px) 100vw, 50vw"
-              className="object-cover object-left-top"
-            />
-          </div>
-        </motion.div>
+          <source src="/assets/videos/Hero-video.mp4" type="video/mp4" />
+        </motion.video>
+      </div>
 
+      <div className="hero-side-smoke absolute inset-0" aria-hidden="true" />
+
+      <div
+        className="hero-delayed-smoke absolute inset-0 bg-black/50"
+        aria-hidden="true"
+      />
+
+      <div className="hero-delayed-content relative z-10 mx-5 max-w-[800px]">
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          className="hyphens-none break-words lg:col-span-6"
+          className="px-6 py-12 text-center text-white sm:px-10 sm:py-16"
+          style={{
+            y: reduceMotion ? 0 : contentY,
+            opacity: reduceMotion ? 1 : contentOpacity,
+          }}
         >
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-slate-950/60 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-cyan-200 backdrop-blur-xl sm:text-sm">
-            <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-cyan-400" />
-            CONSELHO ESTRATÉGICO SOB DEMANDA
-          </div>
+          <Image
+            src="/assets/images/logo_sala_de_decisao.png"
+            alt="Sala de Decisão"
+            width={640}
+            height={320}
+            priority
+            className="mx-auto h-80 w-auto max-w-full object-contain"
+          />
 
-          <h1 className="max-w-2xl text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-5xl">
-            Algumas decisões podem{" "}
-            <strong className="text-gradient font-extrabold">acelerar uma empresa.</strong>{" "}
-            Outras podem{" "}
-            <strong className="text-gradient font-extrabold">comprometer anos de crescimento.</strong>
+          <h1 className="mb-5 text-[2.2rem] font-extrabold uppercase leading-[1.1] tracking-[-1px] md:text-[3.5rem]">
+            Decisões que definem o futuro da sua empresa.
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base font-normal leading-relaxed text-slate-300 lg:text-lg">
-            Antes de decidir, leve sua estratégia para a Sala de Decisão. Um conselho executivo onde líderes, empresários e C-Levels discutem decisões críticas com especialistas que já estiveram na cadeira.
+          <p className="mb-10 text-base font-light text-white/90 md:text-xl">
+            Leve suas decisões críticas à Sala de Decisão: um conselho executivo
+            com especialistas que já estiveram na cadeira.
           </p>
 
-          <a href="#planos" className="cyan-button mt-8 inline-flex w-full max-w-md items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-cyan-300 to-sky-500 px-8 py-4 text-base font-bold uppercase tracking-[.08em] text-slate-950 transition hover:-translate-y-0.5 hover:from-cyan-200 hover:to-sky-400">
-            Quero entrar na sala <ArrowRight size={18} />
+          <a
+            href="#planos"
+            className="cyan-button inline-flex items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-cyan-300 to-sky-500 px-8 py-4 text-base font-bold uppercase tracking-[.08em] text-slate-950 transition hover:-translate-y-0.5 hover:from-cyan-200 hover:to-sky-400"
+          >
+            Quero entrar na sala
+            <ArrowRight size={18} />
           </a>
         </motion.div>
       </div>
-
-      <motion.a
-        href="#decisoes"
-        aria-label="Rolar para a próxima seção"
-        className="relative z-30 mx-auto hidden flex-col items-center gap-2 text-[10px] font-medium tracking-[.22em] text-slate-500 lg:flex"
-        animate={reduceMotion ? undefined : { y: [0, 6, 0], opacity: [0.45, 1, 0.45] }}
-        transition={{ duration: 2.2, repeat: Infinity }}
-      >
-        <span>SCROLL DOWN</span>
-        <ArrowDown size={15} />
-      </motion.a>
     </section>
   );
 }
