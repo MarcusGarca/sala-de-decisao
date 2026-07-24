@@ -24,8 +24,9 @@
 .hero-side-smoke {
   pointer-events:none;
   background:
-    linear-gradient(90deg,rgb(0 0 0 / .98) 0%,rgb(0 0 0 / .86) 7%,rgb(0 0 0 / .42) 16%,transparent 28%),
-    linear-gradient(270deg,rgb(0 0 0 / .98) 0%,rgb(0 0 0 / .86) 7%,rgb(0 0 0 / .42) 16%,transparent 28%);
+    linear-gradient(90deg,rgb(0 0 0 / .78) 0%,rgb(0 0 0 / .48) 6%,rgb(0 0 0 / .16) 13%,transparent 22%),
+    linear-gradient(270deg,rgb(0 0 0 / .78) 0%,rgb(0 0 0 / .48) 6%,rgb(0 0 0 / .16) 13%,transparent 22%),
+    linear-gradient(0deg,rgb(0 0 0 / .88) 0%,rgb(0 0 0 / .42) 14%,transparent 32%);
 }
 @keyframes hero-smoke-reveal {
   from {
