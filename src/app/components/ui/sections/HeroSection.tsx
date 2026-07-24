@@ -38,7 +38,16 @@ export default function HeroSection() {
           preload="auto"
           aria-hidden="true"
         >
-          <source src="/assets/videos/Hero-video.mp4" type="video/mp4" />
+          <source
+            src="/assets/videos/hero_mobile.mp4"
+            type="video/mp4"
+            media="(max-width: 991px)"
+          />
+          <source
+            src="/assets/videos/Hero-video.mp4"
+            type="video/mp4"
+            media="(min-width: 992px)"
+          />
         </motion.video>
       </div>
 

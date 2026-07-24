@@ -53,7 +53,7 @@ export default function AdvisorsSection() {
     <SectionWrapper className="bg-[#00041B]">
       <div ref={targetRef}>
         <Reveal>
-          <p className="text-xs font-semibold tracking-[.2em] text-cyan-400">
+          <p className="max-[991px]:text-center text-xs font-semibold tracking-[.2em] text-cyan-400">
             EXPERIÊNCIA REAL
           </p>
           <h2 className="mt-4 max-w-4xl">

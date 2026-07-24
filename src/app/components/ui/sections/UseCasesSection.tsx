@@ -16,7 +16,7 @@ export default function UseCasesSection() {
   return (
     <SectionWrapper>
       <Reveal>
-        <p className="text-xs font-semibold tracking-[.2em] text-cyan-400">
+        <p className="max-[991px]:text-center text-xs font-semibold tracking-[.2em] text-cyan-400">
           NA PRÁTICA
         </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-semibold sm:text-5xl">

@@ -136,7 +136,7 @@ export default function ExecutivePainSection() {
   return (
     <SectionWrapper id="decisoes" className="overflow-hidden bg-[#00041B]">
       <Reveal>
-        <p className="mb-4 text-xs font-semibold tracking-[.2em] text-cyan-400">
+        <p className="mb-4 max-[991px]:text-center text-xs font-semibold tracking-[.2em] text-cyan-400">
           DECISÕES DE ALTO IMPACTO
         </p>
         <h2 className="max-w-4xl text-3xl font-semibold tracking-tight sm:text-5xl">
